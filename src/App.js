@@ -12,6 +12,12 @@ class App extends Component {
     const employees = this.state.employees.filter(employees => employees.gamer === "Gamer")
     this.setState({ employees });
   }
+
+  sortFunction = () => {
+    const employees = this.state.employees.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    this.setState({ employees });
+     console.log(employees);
+  }
      
  render(){
      return(
