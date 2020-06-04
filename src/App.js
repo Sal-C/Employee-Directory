@@ -1,14 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
 import Navbar from './components/Navbar';
 import EmployeeCard from './components/EmployeeCard';
+import employees from "./employees.json";
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <EmployeeCard />
-    </div>
-  );
+class App extends Component {
+  state = {
+      employees
+    };
+     
+ render(){
+     return(
+       <div>
+         <Navbar />
+         {this.state.employees.map(employee => (
+         <EmployeeCard
+           id={employee.id}
+           key={employee.id}
+           name={employee.name}
+           img={employee.img}
+           occupation={employee.occupation}
+           gamer={employee.gamer}
+         />
+       ))}
+       </div>
+     )
+ }
+
 }
 
 export default App;
