@@ -16,13 +16,16 @@ class App extends Component {
   sortFunction = () => {
     const employees = this.state.employees.sort((a, b) => (a.name > b.name) ? 1 : -1);
     this.setState({ employees });
-     console.log(employees);
   }
      
  render(){
      return(
        <div>
          <Navbar />
+         <div className="row ml-3 mt-2">
+              <button type="button" className="btn btn-primary" onClick={this.sortFunction}>Sort Alphabetically</button>
+              <button type="button" className="btn btn-primary ml-1" onClick={this.filterFunction}>Filter Gamers</button>
+          </div>
          {this.state.employees.map(employee => (
          <EmployeeCard
            id={employee.id}
