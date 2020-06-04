@@ -6,7 +6,12 @@ import employees from "./employees.json";
 class App extends Component {
   state = {
       employees
-    };
+  };
+
+  filterFunction = () => {
+    const employees = this.state.employees.filter(employees => employees.gamer === "Gamer")
+    this.setState({ employees });
+  }
      
  render(){
      return(
